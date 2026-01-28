@@ -1,4 +1,4 @@
-baseURL: "https://your-username.codeberg.page" # CHANGE THIS later to your custom domain
+baseURL: "https://chahat.dev/" # CHANGE THIS later to your custom domain
 languageCode: "en-us"
 title: "My High-End Site"
 theme: "PaperMod"

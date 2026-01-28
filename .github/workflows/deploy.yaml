@@ -1,0 +1,42 @@
+name: Deploy to Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Site
+        run: hugo --minify
+
+      - name: Deploy to Pages Branch
+        env:
+          TOKEN: ${{ secrets.CODEBERG_TOKEN }} 
+        run: |
+          git config --global user.name "Codeberg Actions"
+          git config --global user.email "actions@codeberg.org"
+          
+          cd public
+          
+          git init
+          git checkout -b pages
+          
+          git add .
+          git commit -m "Deploy: ${{ github.sha }}"
+          
+          git remote add origin https://$TOKEN@codeberg.org/${{ github.repository }}.git
+          git push origin pages --force

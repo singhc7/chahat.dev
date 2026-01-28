@@ -9,13 +9,13 @@ jobs:
     runs-on: codeberg-tiny
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: https://github.com/actions/checkout@v3
         with:
           submodules: recursive
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: https://github.com/peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true

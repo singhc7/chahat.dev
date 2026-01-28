@@ -1,0 +1,19 @@
+steps:
+  build:
+    image: klakegg/hugo:ext-alpine-ci
+    commands:
+      - hugo --minify
+
+  deploy:
+    image: woodpeckerci/plugin-git
+    settings:
+      remote: https://codeberg.org/${CI_REPO}.git
+      branch: pages
+      force: true
+      commit_message: "Deploy: ${CI_COMMIT_MESSAGE}"
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token # We will create this secret next
+      source: public/
+    when:
+      branch: main

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title | default "Coming Soon" }}</title>
+    {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+</head>
+<body>
+    <div class="background-glow">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+<main class="hero">
+    <div class="container">
+        <h1 class="reveal">Deploying soon.</h1>
+        <p class="reveal-delayed">Something is in the works. Stay tuned!</p>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="social-links">
+        <a href="https://github.com/singhc7" aria-label="GitHub">
+            <i data-lucide="github"></i>
+        </a>
+        <a href="https://linkedin.com/in/chahat-s" aria-label="LinkedIn">
+            <i data-lucide="linkedin"></i>
+        </a>
+        <a href="mailto:chahat@disroot.org" aria-label="Email">
+            <i data-lucide="mail"></i>
+        </a>
+    </div>
+
+    <div class="legal-info">
+        <p>&copy; <span id="year"></span> Chahat Sandhu&trade;. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+baseURL = "https://chahat.dev/"
+languageCode = "en-us"
+title = "Chahat Sandhu"
+theme = [] # Kept empty as using a custom theme.
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[minify]
+minifyOutput = true

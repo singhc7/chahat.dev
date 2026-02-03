@@ -73,20 +73,96 @@ body {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(30px, 50px) scale(1.1); }
 }
+/* --- LAYOUT & SCROLL SNAP ENGINE --- */
 
-/* Hero Section */
-.hero {
-    flex: 1;
+/* 1. The Parent Container */
+.snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 20px;
+
+    /* Hides scrollbar */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.snap-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 2. The Sections (Hero, Bio, Footer) */
+.snap-section {
+    /* Force every section to take up exactly one full screen */
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 0 20px;
+
+    /* The Snap Point */
+    scroll-snap-align: start;
+}
+
+/* 3. Positioning Logic for the Last Section */
+.footer-section {
+    justify-content: space-between;
+    scroll-snap-align: end;
+}
+
+.status-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headline {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 15px;
+
+
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+.bio-content p {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
 }
 
 /* Smart Typography */
 h1 {
-    /* clamp(minimum, preferred, maximum) */
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 450;
+    letter-spacing: -0.05em;
+    line-height: 1.0;
+    margin-bottom: 50px;
+}
+
+h3 {
     font-size: clamp(2.5rem, 10vw, 5rem);
     font-weight: 600;
     letter-spacing: -0.03em;

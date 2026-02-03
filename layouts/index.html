@@ -2,40 +2,55 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title | default "Coming Soon" }}</title>
+    <title>{{ .Site.Title | default "Chahat Sandhu" }}</title>
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 </head>
 <body>
+<main class="snap-container">
     <div class="background-glow">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
     </div>
-<main class="hero">
-    <div class="container">
-        <h1 class="reveal">Deploying soon.</h1>
-        <p class="reveal-delayed">Something is in the works. Stay tuned!</p>
-    </div>
+    <section class="snap-section hero-section">
+        <h1 class="headline">Mastering the Fundamentals</h1>
+    </section>
+
+    <section class="snap-section bio-section">
+        <div class="bio-content">
+            <h2>Hi, I am Chahat</h2>
+            <p>I am a University of Manitoba student currently exploring the ecosystem of Linux and open source.</p>
+            <p>I believe in software that respects the user, Systems that are private, efficient, and fully owned. My approach is simple: maximize resources, strip away the bloat, and focus on doing one thing perfectly before moving to the next.</p>
+            <p>I’m still learning, but I’m learning to do it right.</p>
+        </div>
+    </section>
+
+    <section class="snap-section footer-section">
+        <div class="status-wrapper">
+            <div class="status-code">
+                <h3 class="headline">More work dropping soon, stay tuned!</h3>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://github.com/singhc7" aria-label="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://linkedin.com/in/chahat-s" aria-label="LinkedIn">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="mailto:chahat@disroot.org" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+
+            <div class="legal-info">
+                <p>&copy; <span id="year"></span> Chahat Sandhu&trade;. All rights reserved.</p>
+            </div>
+        </footer>
+    </section>
 </main>
-
-<footer class="footer">
-    <div class="social-links">
-        <a href="https://github.com/singhc7" aria-label="GitHub">
-            <i data-lucide="github"></i>
-        </a>
-        <a href="https://linkedin.com/in/chahat-s" aria-label="LinkedIn">
-            <i data-lucide="linkedin"></i>
-        </a>
-        <a href="mailto:chahat@disroot.org" aria-label="Email">
-            <i data-lucide="mail"></i>
-        </a>
-    </div>
-
-    <div class="legal-info">
-        <p>&copy; <span id="year"></span> Chahat Sandhu&trade;. All rights reserved.</p>
-    </div>
-</footer>
-
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();

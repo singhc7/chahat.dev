@@ -59,6 +59,8 @@ This repository is configured with a GitHub Actions workflow (`.github/workflows
 
 ## 📄 License & Copyright
 
-The source code for the site's layout and styling is open source. However, the personal content (bio, text, branding, etc.) remains copyrighted.
+The source code for this project is licensed under the **MIT License**. You are free to reuse the layout and styling for your own purposes. However, all personal content (biography, text, and branding) remains the copyrighted property of Chahat Sandhu.
 
-&copy; Chahat Sandhu. All rights reserved.
+See the [LICENSE](./LICENSE) file for more details.
+
+&copy; 2026 Chahat Sandhu. All rights reserved.

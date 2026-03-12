@@ -35,13 +35,13 @@
         <footer class="footer">
             <div class="social-links">
                 <a href="https://github.com/singhc7" aria-label="GitHub">
-                    <i data-lucide="github"></i>
+                    {{ partial "icon.html" (dict "name" "github") }}
                 </a>
                 <a href="https://linkedin.com/in/chahat-s" aria-label="LinkedIn">
-                    <i data-lucide="linkedin"></i>
+                    {{ partial "icon.html" (dict "name" "linkedin") }}
                 </a>
                 <a href="mailto:chahat@disroot.org" aria-label="Email">
-                    <i data-lucide="mail"></i>
+                    {{ partial "icon.html" (dict "name" "mail") }}
                 </a>
             </div>
 
@@ -51,10 +51,8 @@
         </footer>
     </section>
 </main>
-<script src="https://unpkg.com/lucide@latest"></script>
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    lucide.createIcons();
 </script>
 </body>
 </html>

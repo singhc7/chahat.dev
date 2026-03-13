@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title | default "Chahat Sandhu" }}</title>
+    <meta name="description" content="{{ .Params.description | default .Site.Params.description }}">
+    <meta name="author" content="Chahat Sandhu">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Params.description }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ .Permalink }}">
+    <meta property="twitter:title" content="{{ .Title }}">
+    <meta property="twitter:description" content="{{ .Params.description }}">
+
+    <title>{{ .Title | default .Site.Title }}</title>
+
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" fetchpriority="high">
+
+    <!-- Content Security Policy (Basic) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+
+    <!-- Preconnect (if using external assets, e.g., if we were using fonts) -->
 </head>
 <body>
-<main class="snap-container">
-    <div class="background-glow">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<main class="snap-container" id="main-content">
+    <div class="background-glow" aria-hidden="true">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
     </div>
+
     <section class="snap-section hero-section">
-        <h1 class="headline">Mastering the Fundamentals</h1>
+        <h1 class="headline reveal">{{ .Params.hero.headline }}</h1>
     </section>
 
     <section class="snap-section bio-section">
-        <div class="bio-content">
-            <h2>Hi, I am Chahat</h2>
-            <p>I am a University of Manitoba student currently exploring the ecosystem of Linux and open source.</p>
-            <p>I believe in software that respects the user, Systems that are private, efficient, and fully owned. My approach is simple: maximize resources, strip away the bloat, and focus on doing one thing perfectly before moving to the next.</p>
-            <p>I’m still learning, but I’m learning to do it right.</p>
+        <div class="bio-content reveal">
+            <h2>{{ .Params.bio.title }}</h2>
+            {{ range .Params.bio.content }}
+            <p>{{ . }}</p>
+            {{ end }}
         </div>
     </section>
 
     <section class="snap-section footer-section">
         <div class="status-wrapper">
             <div class="status-code">
-                <h3 class="headline">More work dropping soon, stay tuned!</h3>
+                <h3 class="headline reveal">{{ .Params.footer.headline }}</h3>
             </div>
         </div>
 
         <footer class="footer">
             <div class="social-links">
-                <a href="https://github.com/singhc7" aria-label="GitHub">
+                <a href="{{ .Site.Params.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                     {{ partial "icon.html" (dict "name" "github") }}
                 </a>
-                <a href="https://linkedin.com/in/chahat-s" aria-label="LinkedIn">
+                <a href="{{ .Site.Params.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     {{ partial "icon.html" (dict "name" "linkedin") }}
                 </a>
-                <a href="mailto:chahat@disroot.org" aria-label="Email">
+                <a href="{{ .Site.Params.email }}" aria-label="Email">
                     {{ partial "icon.html" (dict "name" "mail") }}
                 </a>
             </div>

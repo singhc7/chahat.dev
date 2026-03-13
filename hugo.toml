@@ -1,12 +1,31 @@
 baseURL = "https://chahat.dev/"
 languageCode = "en-us"
 title = "Chahat Sandhu"
-theme = [] # Kept empty as using a custom theme.
+theme = []
+
+# Efficiency: Disable unnecessary page types for a single-page site
+disableKinds = ["taxonomy", "term", "RSS"]
+
+# Enable robots.txt generation
+enableRobotsTXT = true
+
+[params]
+  description = "Personal portfolio of Chahat Sandhu, a University of Manitoba student exploring Linux and open source."
+  author = "Chahat Sandhu"
+  github = "https://github.com/singhc7"
+  linkedin = "https://linkedin.com/in/chahat-s"
+  email = "mailto:chahat@disroot.org"
+
 
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Needed for some HTML in content if we ever use it
 
 [minify]
-minifyOutput = true
+  minifyOutput = true
+  disableXML = false # Keep XML minified (sitemap)
+
+[build]
+  useResourceCacheByMatch = true
+  writeStats = true

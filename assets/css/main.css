@@ -168,7 +168,7 @@ body {
     margin-bottom: 0;
 }
 
-.bio-content a {
+.bio-content a:not(.btn) {
     color: var(--text-primary);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -176,8 +176,59 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.bio-content a:hover {
+.bio-content a:not(.btn):hover {
     opacity: 0.7;
+}
+
+/* Button Styles */
+.nav-top {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 0;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: opacity 0.3s ease;
+    margin-top: 25px;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-primary);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+    transform: scaleX(1);
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn:hover::after {
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.btn-secondary {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.btn-secondary::after {
+    height: 0.5px;
 }
 
 /* Smart Typography */

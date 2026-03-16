@@ -7,27 +7,12 @@
     <meta name="author" content="Chahat Sandhu">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:title" content="{{ .Title }}">
-    <meta property="og:description" content="{{ .Params.description }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ .Permalink }}">
-    <meta property="twitter:title" content="{{ .Title }}">
-    <meta property="twitter:description" content="{{ .Params.description }}">
-
-    <title>{{ .Title | default .Site.Title }}</title>
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
 
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" fetchpriority="high">
 
-    <!-- Content Security Policy (Basic) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
-
-    <!-- Preconnect (if using external assets, e.g., if we were using fonts) -->
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -37,28 +22,36 @@
         <div class="orb orb-2"></div>
     </div>
 
+    <!-- Hero Section -->
     <section class="snap-section hero-section">
-        <h1 class="headline reveal">{{ .Params.hero.headline }}</h1>
+        <nav class="nav-top reveal">
+            <a href="/" class="btn btn-secondary">&larr; Home</a>
+        </nav>
+        <h1 class="headline reveal">{{ .Title }}</h1>
     </section>
 
+    <!-- Content Sections -->
+    {{ range .Params.sections }}
     <section class="snap-section bio-section">
         <div class="bio-content reveal">
-            <h2>{{ .Params.bio.title }}</h2>
-            {{ range .Params.bio.content }}
+            <h2>{{ .title }}</h2>
+            {{ range .content }}
             <p>{{ . | markdownify }}</p>
-            {{ end }}
-            {{ if .Params.bio.button }}
-            <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed">
-                {{ .Params.bio.button.text }}
-            </a>
             {{ end }}
         </div>
     </section>
+    {{ end }}
 
+    <!-- Footer Section -->
     <section class="snap-section footer-section">
         <div class="status-wrapper">
-            <div class="status-code">
+            <div class="status-code bio-content">
                 <h3 class="headline reveal">{{ .Params.footer.headline }}</h3>
+                {{ if .Params.footer.button }}
+                <a href="{{ .Params.footer.button.url }}" class="btn reveal-delayed" target="_blank" rel="noopener noreferrer">
+                    {{ .Params.footer.button.text }}
+                </a>
+                {{ end }}
             </div>
         </div>
 

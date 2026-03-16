@@ -45,7 +45,7 @@
         <div class="bio-content reveal">
             <h2>{{ .Params.bio.title }}</h2>
             {{ range .Params.bio.content }}
-            <p>{{ . }}</p>
+            <p>{{ . | markdownify }}</p>
             {{ end }}
         </div>
     </section>

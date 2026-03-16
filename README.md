@@ -59,8 +59,10 @@ This repository is configured with a GitHub Actions workflow (`.github/workflows
 
 ## 📄 License & Copyright
 
-The source code for this project is licensed under the **MIT License**. You are free to reuse the layout and styling for your own purposes. However, all personal content (biography, text, and branding) remains the copyrighted property of Chahat Sandhu.
+The source code for this project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. You are free to reuse the layout and styling for your own purposes, provided you maintain the same license and provide source code access if you modify the software. However, all personal content (biography, text, and branding) remains the copyrighted property of Chahat Sandhu.
 
-See the [LICENSE](./LICENSE) file for more details.
+**Note for Commercial/Proprietary Use:** If you wish to implement this code in a proprietary product without releasing your codebase, please contact me at **chahat@disroot.org** to negotiate a separate license.
+
+See the [LICENSE](./LICENSE) file for the full terms and conditions.
 
 &copy; 2026 Chahat Sandhu. All rights reserved.

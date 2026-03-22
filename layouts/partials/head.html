@@ -7,6 +7,23 @@
 
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- SEO: JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Chahat Sandhu",
+      "url": "https://chahat.dev",
+      "jobTitle": "Student",
+      "description": "{{ .Site.Params.description }}",
+      "sameAs": [
+        "{{ .Site.Params.github }}",
+        "{{ .Site.Params.linkedin }}"
+      ]
+    }
+    </script>
+
     <title>{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
 
     {{ $style := resources.Get "css/main.css" | minify | fingerprint }}

@@ -4,7 +4,7 @@ title = "Chahat Sandhu"
 theme = []
 
 # Efficiency: Disable unnecessary page types for a single-page site
-disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+disableKinds = ["taxonomy", "term", "RSS"]
 
 # Enable robots.txt generation
 enableRobotsTXT = true

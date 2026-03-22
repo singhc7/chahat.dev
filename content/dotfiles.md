@@ -1,7 +1,9 @@
 ---
-title: "Dotfiles"
-description: "A minimalist, resource-efficient configuration for Fedora and macOS, managed with GNU Stow."
-sections:
+title: "Dotfiles | Chahat Sandhu"
+author: "Chahat Sandhu"
+description: "Minimalist Fedora and macOS dotfiles by Chahat Sandhu, managed with GNU Stow for ultimate portability."
+---
+
   - title: "The Philosophy"
     content:
       - "My dotfiles are built on a foundation of minimalism and portability. The goal is to maintain a clean host system while ensuring my environment is consistent across Fedora Linux and macOS."

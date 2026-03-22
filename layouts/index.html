@@ -20,7 +20,7 @@
             <p>{{ . | markdownify }}</p>
             {{ end }}
             {{ if .Params.bio.button }}
-            <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed">
+            <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed" title="View my dotfiles and environment configurations">
                 {{ .Params.bio.button.text }}
             </a>
             {{ end }}

@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
 
 [params]
-  description = "Personal portfolio of Chahat Sandhu, a University of Manitoba student exploring Linux and open source."
+  description = "Chahat Sandhu is a University of Manitoba student specializing in Linux architecture, open-source software, and minimalist development environments."
   author = "Chahat Sandhu"
   github = "https://github.com/singhc7"
   linkedin = "https://linkedin.com/in/chahat-s"

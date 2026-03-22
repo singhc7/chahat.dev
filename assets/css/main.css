@@ -127,6 +127,18 @@ body {
     position: relative;
 }
 
+/* Positioning Logic for the Last Section */
+.footer-section {
+    justify-content: space-between;
+}
+
+.status-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .headline {
     font-size: clamp(2.5rem, 10vw, 5.5rem);
     font-weight: 700;

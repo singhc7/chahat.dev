@@ -56,13 +56,10 @@
             </div>
 
             <div class="legal-info">
-                <p>&copy; <span id="year"></span> Chahat Sandhu&trade;. All rights reserved.</p>
+                <p>&copy; {{ now.Format "2006" }} Chahat Sandhu&trade;. All rights reserved.</p>
             </div>
         </footer>
     </section>
 </main>
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>

@@ -3,6 +3,7 @@ title: "Chahat Sandhu"
 description: "Personal portfolio of Chahat Sandhu, a University of Manitoba student exploring Linux and open source."
 hero:
   headline: "Hi, I'm Chahat Sandhu"
+  tagline: "Exploring Linux architecture & building minimalist software"
 bio:
   title: "The Philosophy"
   content:

@@ -148,12 +148,29 @@ body {
     color: var(--text-primary);
 }
 
-.bio-content p {
-    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+.tagline {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-weight: 400;
-    max-width: 680px;
-    margin: 0 auto 1.75rem auto;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: -10px auto 40px auto;
     line-height: 1.6;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.bio-content p {
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    font-weight: 400;
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.7;
     color: var(--text-secondary);
 }
 
@@ -230,6 +247,54 @@ body {
 .social-links {
     display: flex;
     gap: clamp(24px, 6vw, 48px);
+    align-items: center;
+}
+
+.email-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--icon-color);
+    cursor: pointer;
+    opacity: 0.3;
+    padding: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.copy-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: var(--text-primary);
+    color: var(--bg-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--ease-out-expo);
+    white-space: nowrap;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-15px);
 }
 
 .social-links a {
@@ -240,7 +305,36 @@ body {
 
 .social-links a:hover {
     opacity: 1;
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.1);
+    color: var(--accent-color);
+}
+
+/* Section Navigation Dots */
+.section-nav {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+}
+
+.section-nav a {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-secondary);
+    opacity: 0.3;
+    transition: all 0.3s var(--ease-out-expo);
+    text-decoration: none;
+}
+
+.section-nav a:hover {
+    opacity: 1;
+    background-color: var(--accent-color);
+    transform: scale(1.4);
 }
 
 .legal-info p {

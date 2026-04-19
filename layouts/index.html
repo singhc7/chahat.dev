@@ -9,25 +9,30 @@
         <div class="orb orb-2"></div>
     </div>
 
-    <section class="snap-section hero-section">
+    <section class="snap-section hero-section" id="hero">
         <h1 class="headline reveal">{{ .Params.hero.headline }}</h1>
+        {{ if .Params.hero.tagline }}
+        <p class="tagline reveal-delayed">{{ .Params.hero.tagline }}</p>
+        {{ end }}
     </section>
 
-    <section class="snap-section bio-section">
+    <section class="snap-section bio-section" id="philosophy">
         <div class="bio-content reveal">
             <h2>{{ .Params.bio.title }}</h2>
             {{ range .Params.bio.content }}
             <p>{{ . | markdownify }}</p>
             {{ end }}
-            {{ if .Params.bio.button }}
-            <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed" title="View my dotfiles and environment configurations">
-                {{ .Params.bio.button.text }}
-            </a>
-            {{ end }}
+            <div class="footer-buttons">
+                {{ if .Params.bio.button }}
+                <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed" title="View my dotfiles and environment configurations">
+                    {{ .Params.bio.button.text }}
+                </a>
+                {{ end }}
+            </div>
         </div>
     </section>
 
-    <section class="snap-section footer-section">
+    <section class="snap-section footer-section" id="footer">
         <div class="status-wrapper">
             <div class="status-code">
                 <h3 class="headline reveal">{{ .Params.footer.headline }}</h3>
@@ -42,9 +47,15 @@
                 <a href="{{ .Site.Params.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     {{ partial "icon.html" (dict "name" "linkedin") }}
                 </a>
-                <a href="{{ .Site.Params.email }}" aria-label="Email">
-                    {{ partial "icon.html" (dict "name" "mail") }}
-                </a>
+                <div class="email-wrapper">
+                    <a href="{{ .Site.Params.email }}" aria-label="Email" id="email-link">
+                        {{ partial "icon.html" (dict "name" "mail") }}
+                    </a>
+                    <button class="copy-btn" id="copy-email" aria-label="Copy email address" title="Copy email address">
+                        {{ partial "icon.html" (dict "name" "copy") }}
+                        <span class="copy-tooltip">Copied!</span>
+                    </button>
+                </div>
             </div>
 
             <div class="legal-info">
@@ -52,6 +63,25 @@
             </div>
         </footer>
     </section>
+
+    <nav class="section-nav" aria-label="Section navigation">
+        <a href="#hero" aria-label="Hero section"></a>
+        <a href="#philosophy" aria-label="Philosophy section"></a>
+        <a href="#footer" aria-label="Footer section"></a>
+    </nav>
 </main>
+
+<script>
+    document.getElementById('copy-email').addEventListener('click', function() {
+        const email = "{{ .Site.Params.email }}".replace('mailto:', '');
+        navigator.clipboard.writeText(email).then(() => {
+            const tooltip = this.querySelector('.copy-tooltip');
+            tooltip.classList.add('show');
+            setTimeout(() => {
+                tooltip.classList.remove('show');
+            }, 2000);
+        });
+    });
+</script>
 </body>
 </html>

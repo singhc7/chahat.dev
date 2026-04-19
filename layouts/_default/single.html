@@ -10,16 +10,19 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="snap-section hero-section">
+    <section class="snap-section hero-section" id="hero">
         <nav class="nav-top reveal">
             <a href="/" class="btn btn-secondary">&larr; Home</a>
         </nav>
         <h1 class="headline reveal">{{ .Title }}</h1>
+        {{ if .Params.hero.tagline }}
+        <p class="tagline reveal-delayed">{{ .Params.hero.tagline }}</p>
+        {{ end }}
     </section>
 
     <!-- Content Sections -->
-    {{ range .Params.sections }}
-    <section class="snap-section bio-section">
+    {{ range $index, $section := .Params.sections }}
+    <section class="snap-section bio-section" id="section-{{ $index }}">
         <div class="bio-content reveal">
             <h2>{{ .title }}</h2>
             {{ range .content }}
@@ -30,15 +33,22 @@
     {{ end }}
 
     <!-- Footer Section -->
-    <section class="snap-section footer-section">
+    <section class="snap-section footer-section" id="footer">
         <div class="status-wrapper">
             <div class="status-code bio-content">
                 <h3 class="headline reveal">{{ .Params.footer.headline }}</h3>
-                {{ if .Params.footer.button }}
-                <a href="{{ .Params.footer.button.url }}" class="btn reveal-delayed" target="_blank" rel="noopener noreferrer">
-                    {{ .Params.footer.button.text }}
-                </a>
-                {{ end }}
+                <div class="footer-buttons">
+                    {{ if .Params.footer.button }}
+                    <a href="{{ .Params.footer.button.url }}" class="btn reveal-delayed" target="_blank" rel="noopener noreferrer">
+                        {{ .Params.footer.button.text }}
+                    </a>
+                    {{ end }}
+                    {{ if .Params.footer.secondary_button }}
+                    <a href="{{ .Params.footer.secondary_button.url }}" class="btn reveal-delayed" target="_blank" rel="noopener noreferrer">
+                        {{ .Params.footer.secondary_button.text }}
+                    </a>
+                    {{ end }}
+                </div>
             </div>
         </div>
 
@@ -50,9 +60,15 @@
                 <a href="{{ .Site.Params.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     {{ partial "icon.html" (dict "name" "linkedin") }}
                 </a>
-                <a href="{{ .Site.Params.email }}" aria-label="Email">
-                    {{ partial "icon.html" (dict "name" "mail") }}
-                </a>
+                <div class="email-wrapper">
+                    <a href="{{ .Site.Params.email }}" aria-label="Email" id="email-link">
+                        {{ partial "icon.html" (dict "name" "mail") }}
+                    </a>
+                    <button class="copy-btn" id="copy-email" aria-label="Copy email address" title="Copy email address">
+                        {{ partial "icon.html" (dict "name" "copy") }}
+                        <span class="copy-tooltip">Copied!</span>
+                    </button>
+                </div>
             </div>
 
             <div class="legal-info">
@@ -60,6 +76,27 @@
             </div>
         </footer>
     </section>
+
+    <nav class="section-nav" aria-label="Section navigation">
+        <a href="#hero" aria-label="Hero section"></a>
+        {{ range $index, $section := .Params.sections }}
+        <a href="#section-{{ $index }}" aria-label="Section {{ add $index 1 }}"></a>
+        {{ end }}
+        <a href="#footer" aria-label="Footer section"></a>
+    </nav>
 </main>
+
+<script>
+    document.getElementById('copy-email').addEventListener('click', function() {
+        const email = "{{ .Site.Params.email }}".replace('mailto:', '');
+        navigator.clipboard.writeText(email).then(() => {
+            const tooltip = this.querySelector('.copy-tooltip');
+            tooltip.classList.add('show');
+            setTimeout(() => {
+                tooltip.classList.remove('show');
+            }, 2000);
+        });
+    });
+</script>
 </body>
 </html>

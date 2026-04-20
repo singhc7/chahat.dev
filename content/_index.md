@@ -15,8 +15,9 @@ bio:
       to understand the *why* behind the *how*. I believe in software that
       respects the user: efficient, transparent, and fully owned."
     - "Currently contributing to
-      [TheAlgorithms/Java](https://github.com/TheAlgorithms/Java) and
-      experimenting with lean, privacy-first environments. Mastering the
+      [TheAlgorithms](https://github.com/TheAlgorithms),
+      [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+      and experimenting with lean, privacy-first environments. Mastering the
       fundamentals, one layer at a time."
 links:
   - text: "Dotfiles"

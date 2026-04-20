@@ -1,0 +1,21 @@
+<footer class="site-footer">
+    <div class="social-links">
+        <a href="{{ .Site.Params.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            {{ partial "icon.html" (dict "name" "github") }}
+        </a>
+        <a href="{{ .Site.Params.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            {{ partial "icon.html" (dict "name" "linkedin") }}
+        </a>
+        <div class="email-wrapper">
+            <a href="{{ .Site.Params.email }}" aria-label="Email" id="email-link">
+                {{ partial "icon.html" (dict "name" "mail") }}
+            </a>
+            <button class="copy-btn" id="copy-email" data-email="{{ .Site.Params.email | replaceRE `^mailto:` `` }}" aria-label="Copy email address" title="Copy email address">
+                {{ partial "icon.html" (dict "name" "copy") }}
+                <span class="copy-tooltip">Copied</span>
+            </button>
+        </div>
+    </div>
+
+    <p class="legal-info">&copy; {{ now.Format "2006" }} Chahat Sandhu</p>
+</footer>

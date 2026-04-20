@@ -1,87 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-{{ partial "head.html" . }}
-<body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<main class="snap-container" id="main-content">
-    <div class="background-glow" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-    </div>
+{{ define "main" }}
+<section class="section hero-section">
+    <h1 class="headline reveal">{{ .Params.hero.headline }}</h1>
+    {{ with .Params.hero.tagline }}
+    <p class="tagline reveal-delayed">{{ . }}</p>
+    {{ end }}
+</section>
 
-    <section class="snap-section hero-section" id="hero">
-        <h1 class="headline reveal">{{ .Params.hero.headline }}</h1>
-        {{ if .Params.hero.tagline }}
-        <p class="tagline reveal-delayed">{{ .Params.hero.tagline }}</p>
+<section class="section bio-section prose">
+    {{ with .Params.bio.title }}<h2>{{ . }}</h2>{{ end }}
+    {{ range .Params.bio.content }}
+    <p>{{ . | markdownify }}</p>
+    {{ end }}
+</section>
+
+{{ $posts := where site.RegularPages "Section" "blog" }}
+<section class="section writing-section">
+    <h2>Writing</h2>
+    {{ if $posts }}
+    <ul class="post-list">
+        {{ range first 5 $posts }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <span class="title">{{ .Title }}</span>
+                <time class="date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            </a>
+        </li>
         {{ end }}
-    </section>
+    </ul>
+    {{ else }}
+    <p class="empty-state">Notes in progress — first post coming soon.</p>
+    {{ end }}
+</section>
 
-    <section class="snap-section bio-section" id="philosophy">
-        <div class="bio-content reveal">
-            <h2>{{ .Params.bio.title }}</h2>
-            {{ range .Params.bio.content }}
-            <p>{{ . | markdownify }}</p>
-            {{ end }}
-            <div class="footer-buttons">
-                {{ if .Params.bio.button }}
-                <a href="{{ .Params.bio.button.url }}" class="btn reveal-delayed" title="View my dotfiles and environment configurations">
-                    {{ .Params.bio.button.text }}
-                </a>
-                {{ end }}
-            </div>
-        </div>
-    </section>
-
-    <section class="snap-section footer-section" id="footer">
-        <div class="status-wrapper">
-            <div class="status-code">
-                <h3 class="headline reveal">{{ .Params.footer.headline }}</h3>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="social-links">
-                <a href="{{ .Site.Params.github }}" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                    {{ partial "icon.html" (dict "name" "github") }}
-                </a>
-                <a href="{{ .Site.Params.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                    {{ partial "icon.html" (dict "name" "linkedin") }}
-                </a>
-                <div class="email-wrapper">
-                    <a href="{{ .Site.Params.email }}" aria-label="Email" id="email-link">
-                        {{ partial "icon.html" (dict "name" "mail") }}
-                    </a>
-                    <button class="copy-btn" id="copy-email" aria-label="Copy email address" title="Copy email address">
-                        {{ partial "icon.html" (dict "name" "copy") }}
-                        <span class="copy-tooltip">Copied!</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="legal-info">
-                <p>&copy; {{ now.Format "2006" }} Chahat Sandhu&trade;. All rights reserved.</p>
-            </div>
-        </footer>
-    </section>
-
-    <nav class="section-nav" aria-label="Section navigation">
-        <a href="#hero" aria-label="Hero section"></a>
-        <a href="#philosophy" aria-label="Philosophy section"></a>
-        <a href="#footer" aria-label="Footer section"></a>
-    </nav>
-</main>
-
-<script>
-    document.getElementById('copy-email').addEventListener('click', function() {
-        const email = "{{ .Site.Params.email }}".replace('mailto:', '');
-        navigator.clipboard.writeText(email).then(() => {
-            const tooltip = this.querySelector('.copy-tooltip');
-            tooltip.classList.add('show');
-            setTimeout(() => {
-                tooltip.classList.remove('show');
-            }, 2000);
-        });
-    });
-</script>
-</body>
-</html>
+{{ with .Params.links }}
+<section class="section links-section">
+    <h2>Elsewhere</h2>
+    <ul class="post-list">
+        {{ range . }}
+        <li>
+            <a href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                <span class="title">{{ .text }}</span>
+                {{ with .note }}<span class="date">{{ . }}</span>{{ end }}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}
+{{ end }}

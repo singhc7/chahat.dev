@@ -4,28 +4,29 @@ title = "Chahat Sandhu"
 theme = []
 
 # Efficiency: Disable unnecessary page types for a single-page site
-disableKinds = ["taxonomy", "term", "RSS"]
+disableKinds = ["taxonomy", "term"]
 
 # Enable robots.txt generation
 enableRobotsTXT = true
 
 [params]
-  description = "Chahat Sandhu is a University of Manitoba student specializing in Linux architecture, open-source software, and minimalist development environments."
-  author = "Chahat Sandhu"
-  github = "https://github.com/singhc7"
-  linkedin = "https://linkedin.com/in/chahat-s"
-  email = "mailto:chahat@disroot.org"
+description = "Chahat Sandhu is a University of Manitoba student specializing in Linux architecture, open-source software, and minimalist development environments."
+author = "Chahat Sandhu"
+github = "https://github.com/singhc7"
+linkedin = "https://linkedin.com/in/chahat-s"
+email = "mailto:chahat@disroot.org"
 
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true # Needed for some HTML in content if we ever use it
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true # Needed for some HTML in content if we ever use it
 
 [minify]
-  minifyOutput = true
-  disableXML = false # Keep XML minified (sitemap)
+minifyOutput = true
+disableXML = false  # Keep XML minified (sitemap)
 
 [build]
-  useResourceCacheByMatch = true
-  writeStats = true
+useResourceCacheByMatch = true
+writeStats = true
+

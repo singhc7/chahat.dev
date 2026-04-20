@@ -1,0 +1,28 @@
+{{ define "main" }}
+<a href="/" class="back-link reveal">&larr; Back</a>
+
+<section class="section hero-section">
+    <h1 class="headline reveal">{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="tagline reveal-delayed">{{ . }}</p>
+    {{ end }}
+</section>
+
+<section class="section">
+    {{ $posts := .Pages }}
+    {{ if $posts }}
+    <ul class="post-list">
+        {{ range $posts }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <span class="title">{{ .Title }}</span>
+                <time class="date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ else }}
+    <p class="empty-state">No posts yet — drafting now.</p>
+    {{ end }}
+</section>
+{{ end }}

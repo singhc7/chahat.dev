@@ -1,18 +1,29 @@
 ---
 title: "Chahat Sandhu"
-description: "Personal portfolio of Chahat Sandhu, a University of Manitoba student exploring Linux and open source."
+description:
+  "Personal portfolio of Chahat Sandhu, a University of Manitoba student
+  exploring Linux and open source."
 hero:
-  headline: "Hi, I'm Chahat Sandhu"
-  tagline: "Exploring Linux architecture & building minimalist software"
+  headline: "Chahat Sandhu"
+  tagline:
+    "Student at the University of Manitoba exploring Linux architecture and
+    open-source software."
 bio:
-  title: "The Philosophy"
+  title: "About"
   content:
-    - "I am a student at the University of Manitoba, currently exploring the Linux ecosystem and the architecture of open-source software."
-    - "My journey is a pursuit of sovereignty through code—stripping away the bloat to understand the 'why' behind the 'how'. I believe in software that respects the user: efficient, transparent, and fully owned."
-    - "Currently, I'm contributing to [TheAlgorithms/Java](https://github.com/TheAlgorithms/Java) and experimenting with lean, privacy-first environments. Mastering the fundamentals, one layer at a time."
-  button:
-    text: "My Dotfiles"
-    url: "/dotfiles"
-footer:
-  headline: "Building the next experiment..."
+    - "My work is a pursuit of sovereignty through code—stripping away the bloat
+      to understand the *why* behind the *how*. I believe in software that
+      respects the user: efficient, transparent, and fully owned."
+    - "Currently contributing to
+      [TheAlgorithms/Java](https://github.com/TheAlgorithms/Java) and
+      experimenting with lean, privacy-first environments. Mastering the
+      fundamentals, one layer at a time."
+links:
+  - text: "Dotfiles"
+    url: "/dotfiles/"
+    note: "Linux & macOS"
+  - text: "GitHub"
+    url: "https://github.com/singhc7"
+    note: "singhc7"
+    external: true
 ---

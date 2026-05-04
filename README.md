@@ -91,7 +91,7 @@ Sandhu.
 
 **Note for Commercial/Proprietary Use:** If you wish to implement this code in a
 proprietary product without releasing your codebase, please contact me at
-**chahat@disroot.org** to negotiate a separate license.
+**contact@chahat.dev** to negotiate a separate license.
 
 See the [LICENSE](./LICENSE) file for the full terms and conditions.
 

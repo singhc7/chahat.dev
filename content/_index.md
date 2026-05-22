@@ -16,7 +16,8 @@ bio:
       respects the user: efficient, transparent, and fully owned."
     - "Currently contributing to
       [TheAlgorithms](https://github.com/TheAlgorithms),
-      [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+      [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli),
+      [NixOS/nixpkgs](https://github.com/NixOS/nixpkgs)
       and experimenting with lean, privacy-first environments. Mastering the
       fundamentals, one layer at a time."
 links:
